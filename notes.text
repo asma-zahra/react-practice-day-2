@@ -1,0 +1,318 @@
+https://reactjs.org/docs/cdn-links.html
+
+TASk
+    - we are  going to deploy our app for production ready.
+    - we will create our own react app.
+    - react is library facebook developer write for us . this library export for us lot of super power.
+    - two way to access to react library
+        a-use react way to using cdn
+            usind cdn, we do not get production ready app. we need to minify our file..we to bundler to this app. we need to clean console  we need server to run the app. we need to optimized our app. we caching in our app. We can do all these things using Bundlers
+         b- Ignite our app
+            By using Bundler Parcel ignite your app for Production ready
+
+Q- react.create ?
+react.create gives object
+react.create elenment take 3 parameter
+  - 1- element name
+  - 2- attribute (props)
+  - 3- childrens[]
+
+Q- Bundlers for Production ready app?
+    we need to use BUNDLERS.
+    SOME BLNDLERS NAME
+    1- WEBPACK
+    2- PARCEL
+    3- VITE
+    JOB OF BUNDLERS
+    it gives us access to lot of super power. we will be using PARCEL to ignite our app
+    NOTE- create-react-app uses WEBPACK bundler and babel compiler
+
+Q-find diffrence between webpack and parcel.
+    most bundler do the same job they will minify your code they will remove console and lot of optimization.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Q- How to use Parcel?
+ PARCEL is package. means it is module or orgnized collection of code or some peice of code of js combined. if we want to use package in our app then we need package manager which npm.
+ - instead of npm , we can use yarn
+ 4- dev and production build
+5- parcel optimize images as well so that app runs faster
+4- parcel does cheching while development
+5- js optimization ,it compresses your files, minify it
+6- compatible with older version of browsers
+7- it add polyfills babel
+8- it gievs us https 
+9- pacel is dependency this dependency has also dependency..this dependy has other dependency that crete dependy tree that is called transitive dependencies 
+10- Tree Shaking
+localhost:1234
+which is http
+add hhtps
+npx parel index.html --https
+ab server run hoga
+https://localhost:1234
+9- cacheing - bcz of parcel-cachce
+10- consistent hashing algorithm for all thatt bundling and cacheing
+11- zero configration
+
+Q- what is npm?
+npm is not node package manager ...on thier website you check is has so many name except this on NPM website.
+it is used to manage all the packages
+
+Q- How do you use NPM in your project?
+    - by initializing NPM using command , Package.JSON will created
+    npm init -y
+    -y is used to skip questions
+    init is initialization.
+    lets use npm init only and answer the question
+    - package name: (react-practice) ======folder name/ directory name
+    version: (1.0.0)==========by deafault
+    description: This is a training of react =========anything you like
+    entry point: (app.js)===========entry could be index.html as well
+    test command: jest=================for testing
+    git repository:=======================we will add later to track the change in our app
+    keywords:===================any tag
+    author: Asma Zahra============your name
+    license: (ISC)====================by default
+
+About to write to D:\React-practice\package.json:============our packgae.json is created in our app with these discription
+
+{
+  "name": "react-practice",
+  "version": "1.0.0",
+  "description": "This is a training of react",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Asma Zahra",
+  "license": "ISC"
+}
+
+Is this OK? (yes)
+
+Now add git repo url in Package.JSON to track chanage
+ "repository": {
+    "type": "git",
+    "url": "https://github.com/asma-zahra/React-Training.git"
+},
+create repo on github "https://github.com/asma-zahra/React-Training.git" and push the package.json over there
+
+Q- why do we need packages?
+    bcz app can not be production ready only using create-react-app
+    we need all the helper packages for that we need npm which give me access to all tha packages
+    we nee to minify we need to remove console we need bundler
+
+===========================================================================
+lets just ignite our app using budler parcel
+    using npm configure parcel by 
+    npm install parcel
+
+    NOTE- we don't want parcel in production we want parcel in our developer machine. for that we use -D for devolopment (dev dependencies) for that use command 
+    "npm install -d parcel"
+
+Q- What is dev dependecies
+Ans- 
+    dev dependecies is all the packages that our project need for develoment exp- pacel is such dependencies for our react app bcz we need bundlers
+    --save-dev is same as -d
+    "npm install -d parcel"
+    output-
+    1- we will get package.lock.json and 
+    2-"devdependencies" as parcel in package.json
+    3- node modules folder added
+
+Q-  In package.JSON What caret or teld in dev dependencies?
+    "devDependencies": {
+        "parcel": "^2.8.2"
+    } 
+    ^ = carrot
+    ` = tilda
+    it is way to tell which version we are using
+    if new version comes in our projct parcel version wil automatically upgrade using tilda or carrot
+
+Q- what is package.lock.json?
+    what version of library we are using there is no tilda or corrot
+    package lock locks the pacakge. does not change.
+    a- you never have to keep package-lock.JSON it in gitignore-----blunder mistake
+    always keep in git
+    b- it maintains version and maintains hash as well.hash insures which version running is my system is excatly that version running on production. it maintains intigrity.
+
+Q- why node modules added?
+    ans- when you install something using npm ...it add in node modules . node modules is like database for npm 
+
+Q- how will parcel minify our code?
+    see node ,module minifiers is used which is dependies of parcel that is installed in node module you check...parcel have lot of depaendency all is installed you can see in node modules. 
+    exp - browserlist -which make our app compatible to older browsers
+
+Q- should you add node module to git?
+Ans - never, it is  heaivest object  we can regenrate all the same if we have package.json and packge.log.json bcz these have all dependencies in package.lock.json
+
+Q- what amazing thing parcel do?
+===================================================================================================================
+Q- how to install react and react-dom in project
+    npm install react
+    npm install react-dom
+
+    install another package react and reactdom not use -d bcz we dont want react in dev enviorment we want it global see it added as dependencies in package.JSON
+    ans-   "dependencies": {
+        "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+    }
+    it is added in package.json as dependency not as dev dependency
+    now we no more need cdn for react and react dom . bcz if version change cdn will not change but due to tilda or carrot react react-dom version will change in our app
+
+===================================================
+Task -now run app using npm 
+Q- npx what is
+    excuting code using npm that is npx
+    npx parcel index.html (entry point)
+
+    output- it started server running
+
+    Server running at http://localhost:1234
+    Installing process...
+
+    Server running at http://localhost:1234
+    ✨ Built in 398ms
+
+    Parcel is giving us server
+
+    we get error -
+    Uncaught ReferenceError: React is not defined
+        at app.js:1:18
+
+    Solution-
+    import react in app.js error solved
+    bcz cdn use kr rahe the to error rahi thi
+    ab react react dom dependecy node  module me hai....wha se import krna padega....to resolve error
+===================================================================================
+output error-
+
+    Server running at http://localhost:1234
+    🚨 Build failed.
+
+    @parcel/transformer-js: Browser scripts cannot have imports or exports.
+
+    D:\React-practice\app.js:1:1
+    > 1 | import React from "react";
+    >   | ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        2 | import ReactDOM from "react-dom";
+        3 | const heading1 = React.createElement(
+
+    D:\React-practice\index.html:11:5
+        10 |     <div id="root">Not Rendered</div>
+    > 11 |
+    >    |
+    > 12 |     <script src="app.js"></script>
+    >    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    > 13 |   </body>
+    >    | ^^^^^^^^^
+    > 14 | </html>
+    >    | ^^^^^^^^ The environment was originally created here
+        15 |
+
+    on browser error says
+    Browser scripts cannot have imports or exports.
+
+    REASON- I have app.js we find import browser does not understand import
+    Solution-
+    we have to tell it is not normal js file it is module add type="module" in script tag of app.js
+
+    output - all error gone we get heading 1 and 2
+    we got warning but
+    index.js:1 Warning: You are importing createRoot from "react-dom" which is not supported. You should instead import it from "react-dom/client"
+    just change from this
+    import ReactDOM from "react-dom" 
+    to this
+    import ReactDOM from "react-dom/client";
+    warning gone
+
+    now edit heading1 from parcel
+    heading2 from parcel and it will work because parcel is doing this "HOT MODULE REPlacement"(HMD)thats why we getting changes automatically on server on browser.
+=====================================================================================================
+
+Q how does HWR work How parcel know that we change something on index.html or css
+Ans- bcz Parcel is using File Watcher algorithem written in c++
+reload changes is very fast in mili sec
+output
+heading1 from parcel
+heading2 from parcel
+
+====================================================
+Q-How we get parcel cache folder
+    A- parcel creates parcel cache
+
+Q-How we get  distt folder kaise aya
+    parcel creates Dist folder  it keeps the file minified for us.
+    dist cretes  faster develoment versions of our app and serves it on server .
+    it cretes development built for us and host it on our server
+======================================================
+Task-right now it is DEVELOMENT BUILD
+MAKE A PRODUCTION say to parcel using BUIlD command
+    - delete distt folder 
+    again run command
+    npx parcel build index.html
+    error
+    aap.js ki
+    remove main point : app.js from package.json
+    becz production me automatically create hogi files 
+
+    dist\index.html              344 B    3.02s
+    dist\index.d7d1395c.js    140.3 KB    2.05s
+
+    parcel cretes this files dist\index.html dist\index.d7d1395c.js 
+    now you can see all that code that we wriitten in app.js in it mapped in dist folder index inde444.js at the last portion
+    ------parcel 1- minified it 2- bundled everything
+    you will not find console log....bcz parcle... has 3- cleaned our code ....4- just in mili sec
+
+Q- why shuld put in .parcel-caches and dist folder in gitignore
+Ans-
+    yes .parcel-cache and dist is auto generated using command
+    npx parcel build index.html
+    we con generate node modules ny using 
+    npm install
+
+Q- Tree Shaking parcel does it
+Ans - 
+    removing unwanted code. how parcel do it?
+    library has so many func, we have usd just few,
+    parcel is very smart it remove rest func which is not used in the code
+
+===============================================
+Q- diff between react and reactdom
+react- core package
+reactdom- package for manipulating DOM
+
+Q- why react is popular and faster
+    A- bcz of bundlers like parcel and parcel has lot of dependencies
+==============================================
+Q- BrowserList?
+parcel gives broswelist which makes our app compatible to older browsers
+how to use browserlist
+goto browserlist-npm google
+  "browserslist": [
+    "Last two version"
+  ]
+add this in package.json  "Last two version" - it will take care  of version last 2 version of all browser availbe
+======================================================
+
+Q- use npm what to do initiaze it ?
+A-   using npm init
+    it give package.json
+Q- parcel for dev dependency= npm i -d parcel
+    it create packege-lock-json
+
+Q-excute the parcel
+    npx parcel index.html
+    it enables cahing, budling, craete server, hot loading replacemnt  (HMR)
+
+Q- react install
+    NPm i react 
+    npm i react-dom
+    error
+    import ke baad
+    type = module 
+
+=================================================
+
+create-react-app uses Babel and webpack
+
+==================================================
